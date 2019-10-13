@@ -37,7 +37,7 @@ setInterval(function(){
 function func(){
 	if(i==3) i=0;
 	
-	$('#bannerContainer').html('<img src="Project Files/assets/banner'+i+'.jpg" alt="banner" class="banners">');
+	$('#bannerContainer').html('<img src="banner'+i+'.jpg" alt="banner" class="banners">');
 	i++;
 }
 
