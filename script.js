@@ -6,6 +6,7 @@ $('#pastbtn').on("click",function(){
 });
 $('#presentbtn').on("click",function(){
  	$("html, body").stop().animate({scrollTop:1450}, 1400, 'swing');
+ 	
 });
 $('#ideabtn').on("click",function(){
  	$("html, body").stop().animate({scrollTop:2350}, 1400, 'swing');
@@ -21,11 +22,16 @@ $('#teambtn').on("click",function(){
 //  	$("html, body").stop().animate({scrollTop:position}, 1000, 'swing', function() { 
 // }
 
-
-$('.fa-search').click(function(){
-
-})
-
+// $('.team').hover(function(){
+// 	$(this).css({
+// 	'cursor': 'pointer',
+// 	'boxShadow': '5px 5px 50px red'
+// });
+// },function(){
+// 	$(this).css({
+// 	'boxShadow': 'none'
+// });
+// });
 
 
 i=2;
@@ -37,7 +43,7 @@ setInterval(function(){
 function func(){
 	if(i==3) i=0;
 	
-	$('#bannerContainer').html('<img src="banner'+i+'.jpg" alt="banner" class="banners">');
+	$('#bannerContainer').html('<img src="Project Files/assets/banner'+i+'.jpg" alt="banner" class="banners">');
 	i++;
 }
 
@@ -73,7 +79,7 @@ $('.energyImages').on('click',function(){
 $('.imgProf').on('click',function(event){
 	$(this).parent().find('p').fadeIn(1000);
 	$(this).slideUp('slow');
-	// $(this).toggleClass('shadow');
+	// $(this).parent().toggleClass('shadow');
 	event.stopPropagation()
 })
 
@@ -91,3 +97,14 @@ $('.fa-search').on('click',function(){
 $('.fa-close').on('click',function(){
 	$('#searchBox').fadeOut(400);
 });
+
+var scrollPos=0;
+document.addEventListener('scroll',function(){
+	var scrollPresent=window.pageYOffset || document.documentElement.scrollTop;
+	if(scrollPresent>scrollPos)
+		$('#navContainer').slideUp(100);
+	else
+		$('#navContainer').slideDown(100);
+	// scrollPos = scrollPresent;
+	scrollPos = scrollPresent <= 0 ? 0 : scrollPresent; // For Mobile or negative scrolling
+}, false);
